@@ -1,0 +1,34 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand">
+            </a>
+            <span class="navbar-brand"><b>Demo</b></span>
+        </div>
+        <ul class="nav navbar-nav">
+            <li [routerLinkActive]="['active']"><a routerLink="/dashboard">Dashboard</a></li>
+            <li [routerLinkActive]="['active']"><a routerLink="/add-task">Add Task</a></li>
+            <li [routerLinkActive]="['active']"><a routerLink="/list-task">List Task</a></li>
+            <li [routerLinkActive]="['active']"><a routerLink="/location">Current Location</a></li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+    <div class="container">
+        <div *ngIf="messagingService.currentMessage | async as message" class="alert alert-info">
+            
+            <strong>{{ message.notification.title }}</strong>
+            {{ message.notification.body }}
+        </div>  
+    </div>
+
+<!-- <alert type="success" [dismissible]="true">Success alert</alert> -->
+
+<!-- <nav class="nav-menu">
+	<a routerLink="/dashboard" [ngClass]="{'active':pageName === 'dashboard'}">Dashboard</a>
+	<a routerLink="/students" [ngClass]="{'active':pageName === 'students'}">Students</a>
+	<a routerLink="/categories" [ngClass]="{'active':pageName === 'categories'}">Categories</a>
+	<a routerLink="/products" [ngClass]="{'active':pageName === 'products'}">Products</a>
+</nav> -->

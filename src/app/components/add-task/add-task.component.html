@@ -1,0 +1,69 @@
+<h3 class="text-center">
+	<strong>{{title}}</strong>
+</h3>
+
+	<!-- <h3>{{description}}</h3> -->
+	<!-- <div class="container">
+		<div *ngIf="messagingService.currentMessage | async as message" class="notification is-dark slideInRight">
+			<h1>{{ message.notification.title }}</h1>
+			<p>{{ message.notification.body }}</p>
+		</div>	
+	</div> -->
+
+<form [formGroup]="angularForm" class="form-horizontal" novalidate (ngSubmit)="onSubmit()">
+	<div class="form-group">
+		<label class="control-label col-sm-2 " for="name">Task:</label>
+		<div class="col-sm-10">
+			<input type="text" formControlName="task" class="form-control" placeholder="Enter content..." id="task" required [(ngModel)]="taskValue" name="task">
+			<div *ngIf="angularForm.controls['task'].invalid && (angularForm.controls['task'].dirty || angularForm.controls['task'].touched)" class="alert alert-danger">
+				<div *ngIf="angularForm.controls['task'].errors.required">
+				  Task is required.
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="name">Task Description:</label>
+		<div class="col-sm-10">
+			<input type="text" formControlName="taskDescription" class="form-control" placeholder="Enter Description...." id="taskDescription" required [(ngModel)]="taskDescriptionValue" name="taskDescription">
+			<div *ngIf="angularForm.controls['taskDescription'].invalid && (angularForm.controls['taskDescription'].dirty || angularForm.controls['taskDescription'].touched)" class="alert alert-danger">
+				<div *ngIf="angularForm.controls['taskDescription'].errors.required">
+					Task Description is required.
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="name">Task Date:</label>
+		<div class="col-sm-10">
+			<input type="text" formControlName="taskDate" class="form-control" bsDatepicker id="taskDate" required [(bsValue)]="taskDateValue" value="{{ taskDateValue | date:'yyyy-MM-dd' }}" [(ngModel)]="taskDateValue" name="taskDate" onkeydown="return false;">
+			<div *ngIf="angularForm.controls['taskDate'].invalid && (angularForm.controls['taskDate'].dirty || angularForm.controls['taskDate'].touched)" class="alert alert-danger">
+				<div *ngIf="angularForm.controls['taskDate'].errors.required">
+					Task Date is required.
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="control-label col-sm-2" for="name">Task Time:</label>
+		<div class="col-sm-10">
+			<input type="text" formControlName="taskTime" class="form-control" id="taskTime" required [(ngModel)]="taskTimeValue" name="taskTime" onkeydown="return false;" [ngxTimepicker]="picker" [format]="24"><ngx-material-timepicker #picker></ngx-material-timepicker>
+			<div *ngIf="angularForm.controls['taskTime'].invalid && (angularForm.controls['taskTime'].dirty || angularForm.controls['taskTime'].touched)" class="alert alert-danger">
+				<div *ngIf="angularForm.controls['taskTime'].errors.required">
+					Task Time is required.
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="form-group"> 
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" [disabled]="angularForm.pristine || angularForm.invalid" class="btn btn-success" class="btn btn-primary">Save</button>
+		</div>
+	</div>
+</form>

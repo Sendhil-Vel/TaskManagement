@@ -1,0 +1,18 @@
+nav.nav-menu {
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+nav.nav-menu a {
+    text-decoration: none;
+    padding: 10px;
+    transition: all .25s ease-in;
+    color: #000000;
+    display: inline-block;
+}
+nav.nav-menu a:hover,
+nav.nav-menu a.active {
+    background-color: #e2e2e2;
+    color: #008ef7;
+}
