@@ -51,8 +51,8 @@ http://localhost:4200<br/>
 * Add Task allows you to add new Tasks. : http://localhost:4200/add-task
     1) You can add task name, task description, task date and task time.
     2) Necessary Validation added using ReactiveForms. 
-* List Task will list all the existing task in Firebase.
-* Current Location will show your location in google map. You have to allow location infotmation when the page loads.
+* List Task will list all the existing task in Firebase. : http://localhost:4200/list-task
+* Current Location will show your location in google map. You have to allow location infotmation when the page loads. : http://localhost:4200/location
 * Demo push notification will send a push notification which will appear in the browser.    
 
 ## Contributing
